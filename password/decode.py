@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Version:    V1.1
+Version:    V1.2
 Time:       2020.08.21
 Author:     Gaozhl
 """
-import os
 import base64
-from random import Random
-from hashlib import md5
 
 def decode_base64(passwd_base64):
     """
@@ -39,4 +36,57 @@ def decode_base64(passwd_base64):
     passwd = passwd_tmp.split(salt)[1]
     return passwd
 
-print(str(decode_base64('WWlQQ3RwPWZhc2Q9c2RnYXNkZ3M9WWlQQ3RwPTc=')))
+# 测试base64解密
+# print(str(decode_base64('NlZ4ekc4dz1GRkNTLWphdmEzNlZ4ekc4dz04')))
+
+def decode_md5(passwd_md5):
+    """
+    md5单向的，因此只能判断是否正确
+    :param passwd_md5:  输入md5加密的密码
+    :return:            1为正确，0为错误
+    """
+    # 获取存在数据库中或者这里写好的密码
+    passwd = "xxx"
+    if (passwd == passwd_md5):
+        print("密码正确")
+    else:
+        print("密码错误")
+
+# 测试md5
+# decode_md5("xxx")
+
+def decode_sha1(passwd_sha1):
+    """
+    sha1单向的，因此只能判断是否正确
+    :param passwd_sha1: 输入sha1加密的密码
+    :return:            1为正确，0为错误
+    """
+    # 获取存在数据库中或者这里写好的密码
+    passwd = "xxx"
+    if (passwd == passwd_sha1):
+        print("密码正确")
+        return 1
+    else:
+        print("密码错误")
+        return 0
+
+# 测试md5
+# decode_sha1("xxx")
+
+def decode_sha256(passwd_sha256):
+    """
+    sha256单向的，因此只能判断是否正确
+    :param passwd_sha256:   输入sha256加密的密码
+    :return:                1为正确，0为错误
+    """
+    # 获取存在数据库中或者这里写好的密码
+    passwd = "xxx"
+    if (passwd == passwd_sha256):
+        print("密码正确")
+        return 1
+    else:
+        print("密码错误")
+        return 0
+
+# 测试md5
+# decode_sha256("xxx")
