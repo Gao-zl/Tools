@@ -41,7 +41,7 @@ def send_163_mail(sender='', pwd='', receiver='', mail_title='', mail_content=''
     用于发件账号是163账号的情况
     注意：
         163邮箱发送，主题不得为Test、测试之类字眼；
-        163收件人要把自己也加进去，在函数中处理，填写按原来。
+        163收件人要把自己也加进去，在函数中处理，填写按原来格式即可。
     :param sender:          发件人的163邮箱账号
     :param pwd:             发件人的163邮箱授权码
     :param receiver:        收件人账号
@@ -69,8 +69,8 @@ def send_163_mail(sender='', pwd='', receiver='', mail_title='', mail_content=''
     smtp.quit()
 
 # 测试
-send_qq_mail(sender = "xxx@qq.com",
-             pwd = "xxx",
-             receiver = "xxx@qq.com",
-             mail_title = "邮箱发件内容",
-             mail_content = "Hello")
+# send_qq_mail(sender = "xxx@qq.com",
+#              pwd = "xxx",
+#              receiver = "xxx@qq.com",
+#              mail_title = "邮箱发件内容",
+#              mail_content = "Hello")
