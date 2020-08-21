@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Version:    V1.0
+Version:    V1.1
 Time:       2020.08.21
 Author:     Gaozhl
 """
@@ -22,7 +22,7 @@ def create_salt(length):
     # 随机从chars中取出length长度的秘钥
     for i in range(length):
         salt += chars[random.randint(0, len_chars)]
-    return salt
+    return salt+'='
 
 # 测试
 # print(create_salt(12))
@@ -37,10 +37,16 @@ def encrypt_base64(passwd):
     # passwd_base64 = str(bytes.decode(base64.b64encode((passwd).encode('utf-8'))))
     # return passwd_base64
 
-    # V1.1
-    # 新增salt，通过添加salt的内容以及长度来加密字符串
-    salt = create_salt(12)
-    passwd_base64 = str(bytes.decode(base64.b64encode((salt + passwd + "=" +str(len(salt))).encode('utf-8'))))
+    # # V1.1
+    # # 新增salt，通过添加salt的内容以及长度来加密字符串
+    # salt = create_salt(12)
+    # passwd_base64 = str(bytes.decode(base64.b64encode((salt + passwd + "=" +str(len(salt))).encode('utf-8'))))
+    # return passwd_base64
+
+    # V1.2
+    # 由于可能密码中存在多个=导致后续的取数会发生错误，因此修改
+    salt = create_salt(Random().randint(0, 12))
+    passwd_base64 = str(bytes.decode(base64.b64encode((salt + passwd + salt + str(len(salt))).encode('utf-8'))))
     return passwd_base64
 
 print(encrypt_base64('fasd=sdgasdgs='))
