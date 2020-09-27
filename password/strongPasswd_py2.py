@@ -20,6 +20,7 @@ char_set = {'small': 'abcdefghijklmnopqrstuvwxyz',
 def generate_pass(length=21):
     """
     Function to generate a password
+    强密码生成器
     修改：以大写字母开头，防止某些时刻的特殊要求
     :param length:  生成密码长度
     :return:        生成的密码结果

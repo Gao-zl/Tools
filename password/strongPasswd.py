@@ -1,8 +1,9 @@
 # -*- coding:utf-8 -*-
 '''
-
+Version:    V1.0
+Time:       2020.08.21
+Author:     Gaozhl
 '''
-# 生成随机密码
 import string
 import random
 
@@ -12,9 +13,10 @@ char_set = {'small': 'abcdefghijklmnopqrstuvwxyz',
              'special': '^!\$%&/()=?{[]}+~-.:,;<>|'
             }
 
-def GenPassword(length=12, chars=string.ascii_letters + string.digits):
+def GenPassword(length=21, chars=string.ascii_letters + string.digits):
     """
-    生成复杂密码
+    Function to generate a password
+    强密码生成器
     :param length:  选定长度
     :param chars:   默认值即可
     :return:        生成的复杂密码
