@@ -9,6 +9,7 @@ from email.mime.multipart import MIMEMultipart
 from email.header import Header
 from smtplib import SMTP_SSL
 
+
 def send_qq_mail(sender='', pwd='', receiver='', mail_title='', mail_content=''):
     """
     用于发件账号是QQ账号的情况
@@ -35,6 +36,7 @@ def send_qq_mail(sender='', pwd='', receiver='', mail_title='', mail_content='')
     msg["To"] = receiver
     smtp.sendmail(sender, receiver, msg.as_string())
     smtp.quit()
+
 
 def send_163_mail(sender='', pwd='', receiver='', mail_title='', mail_content=''):
     """
@@ -67,6 +69,7 @@ def send_163_mail(sender='', pwd='', receiver='', mail_title='', mail_content=''
     msg["To"] = receiver
     smtp.sendmail(sender, receiver, msg.as_string())
     smtp.quit()
+
 
 # 测试
 # send_qq_mail(sender = "xxx@qq.com",

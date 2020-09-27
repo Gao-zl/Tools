@@ -8,10 +8,11 @@ import string
 import random
 
 char_set = {'small': 'abcdefghijklmnopqrstuvwxyz',
-             'nums': '0123456789',
-             'big': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-             'special': '^!\$%&/()=?{[]}+~-.:,;<>|'
+            'nums': '0123456789',
+            'big': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            'special': '^!\$%&/()=?{[]}+~-.:,;<>|'
             }
+
 
 def GenPassword(length=21, chars=string.ascii_letters + string.digits):
     """
@@ -37,6 +38,7 @@ def GenPassword(length=21, chars=string.ascii_letters + string.digits):
             passwd.append(char_set[key][choice])
     return ''.join(passwd)
 
+
 def check_prev_char(passwd, current_char_set):
     """
     检查前后两个字符是否相同，保证密码不出现简单密码
@@ -53,5 +55,6 @@ def check_prev_char(passwd, current_char_set):
             return True
         else:
             return False
+
 
 print(GenPassword())

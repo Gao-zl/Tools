@@ -11,6 +11,7 @@ from hashlib import md5
 from hashlib import sha1
 from hashlib import sha256
 
+
 def create_salt(length):
     """
     生成随机salt用于加密
@@ -25,9 +26,9 @@ def create_salt(length):
     for i in range(length):
         salt += chars[random.randint(0, len_chars)]
     return salt+'='
-
 # 测试
 # print(create_salt(12))
+
 
 def encrypt_base64(passwd):
     """
@@ -52,9 +53,9 @@ def encrypt_base64(passwd):
     salt = create_salt(Random().randint(0, 12))
     passwd_base64 = str(bytes.decode(base64.b64encode((salt + passwd + salt + str(len(salt))).encode('utf-8'))))
     return passwd_base64
-
 # 测试base64加密
-print(encrypt_base64('FFCS-java3'))
+# print(encrypt_base64('FFCS-java3'))
+
 
 def encrpty_md5(passwd):
     """
@@ -64,9 +65,9 @@ def encrpty_md5(passwd):
     """
     passwd_md5 = md5(passwd.encode(encoding='UTF-8')).hexdigest()
     return passwd_md5
-
 # 测试md5加密
 # print(encrpty_md5('FFCS-java3'))
+
 
 def encrpty_sha1(passwd):
     """
@@ -79,9 +80,9 @@ def encrpty_sha1(passwd):
     passwd_sha1.update(passwd.encode())
     passwd_sha1 = passwd_sha1.hexdigest()
     return passwd_sha1
-
 # 测试sha1加密
 # print(encrpty_sha1("FFCS-java3"))
+
 
 def encrpty_sha256(passwd):
     """
@@ -92,6 +93,5 @@ def encrpty_sha256(passwd):
     """
     passwd_sha256 = sha256(passwd.encode("utf-8")).hexdigest()
     return passwd_sha256
-
 # 测试sha1加密
 # print(encrpty_sha256("FFCS-java3"))

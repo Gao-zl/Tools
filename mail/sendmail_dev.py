@@ -3,6 +3,7 @@
 Version:    V1.0
 Time:       2020.08.20
 Author:     Gaozhl
+Attention:  当前未完成
 """
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -36,6 +37,7 @@ def send_qq_mail(sender='', pwd='', receiver='', mail_title='', mail_content='')
     msg["To"] = receiver
     smtp.sendmail(sender, receiver, msg.as_string())
     smtp.quit()
+
 
 def send_163_mail(sender='', pwd='', receiver='', mail_title='', mail_content=''):
     """
@@ -114,27 +116,27 @@ def send_qq_mail_attach(sender='', pwd='', receiver='', mail_title='', mail_cont
     smtp.quit()
 
 
-def deal_attach(attach):
-    count = attach.count(',')
-    print(count)
-    for i in range(count):
-        # 命名当前的附件名称
-        name = attach.split(',')[i]
-        print("name: ",name)
-        list = ["att" + str(x) for x in range(1, count + 1)]
-        # 构造附件1（附件为TXT格式的文本）
-        list[i] = MIMEText(open(name, 'rb').read(), 'base64', 'utf-8')
-        list[i]["Content-Type"] = 'application/octet-stream'
-        list[i]["Content-Disposition"] = 'attachment; filename=name'
-        message.attach(list[i])
-    return count
+# def deal_attach(attach):
+#     count = attach.count(',')
+#     print(count)
+#     for i in range(count):
+#         # 命名当前的附件名称
+#         name = attach.split(',')[i]
+#         print("name: ", name)
+#         list = ["att" + str(x) for x in range(1, count + 1)]
+#         # 构造附件1（附件为TXT格式的文本）
+#         list[i] = MIMEText(open(name, 'rb').read(), 'base64', 'utf-8')
+#         list[i]["Content-Type"] = 'application/octet-stream'
+#         list[i]["Content-Disposition"] = 'attachment; filename=name'
+#     return count
+
 
 # deal_attach('0.txt,1.mp4,1.avi')
 # 测试
-send_qq_mail_attach(sender = "x@qq.com",
-                    pwd = "x",
+send_qq_mail_attach(sender="x@qq.com",
+                    pwd="x",
                     # pwd = "x",
-                    receiver = "x@qq.com",
-                    mail_title = "邮箱发件内容",
-                    mail_content = "Hello",
-                    attach = "0.txt,1.mp4,1.avi")
+                    receiver="x@qq.com",
+                    mail_title="邮箱发件内容",
+                    mail_content="Hello",
+                    attach="0.txt,1.mp4,1.avi")

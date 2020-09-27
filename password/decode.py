@@ -6,6 +6,7 @@ Author:     Gaozhl
 """
 import base64
 
+
 def decode_base64(passwd_base64):
     """
     解密base64秘钥
@@ -35,9 +36,9 @@ def decode_base64(passwd_base64):
     salt = passwd_tmp[:salt_len]
     passwd = passwd_tmp.split(salt)[1]
     return passwd
-
 # 测试base64解密
 # print(str(decode_base64('NlZ4ekc4dz1GRkNTLWphdmEzNlZ4ekc4dz04')))
+
 
 def decode_md5(passwd_md5):
     """
@@ -47,13 +48,13 @@ def decode_md5(passwd_md5):
     """
     # 获取存在数据库中或者这里写好的密码
     passwd = "xxx"
-    if (passwd == passwd_md5):
+    if passwd == passwd_md5:
         print("密码正确")
     else:
         print("密码错误")
-
 # 测试md5
 # decode_md5("xxx")
+
 
 def decode_sha1(passwd_sha1):
     """
@@ -69,9 +70,9 @@ def decode_sha1(passwd_sha1):
     else:
         print("密码错误")
         return 0
-
 # 测试md5
 # decode_sha1("xxx")
+
 
 def decode_sha256(passwd_sha256):
     """
@@ -81,12 +82,11 @@ def decode_sha256(passwd_sha256):
     """
     # 获取存在数据库中或者这里写好的密码
     passwd = "xxx"
-    if (passwd == passwd_sha256):
+    if passwd == passwd_sha256:
         print("密码正确")
         return 1
     else:
         print("密码错误")
         return 0
-
 # 测试md5
 # decode_sha256("xxx")
